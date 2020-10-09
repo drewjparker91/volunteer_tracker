@@ -3,7 +3,7 @@ class Project
   attr_accessor :title
 
   def initialize(attributes)
-    @name = attributes.fetch(:title)
+    @title = attributes.fetch(:title)
     @id = attributes.fetch(:id)
   end
 
@@ -31,15 +31,22 @@ class Project
     @id = result.first().fetch("id").to_i()
   end
 
+  # def self.find(id)
+  #   project = DB.exec("SELECT * FROM projects WHERE id = #{id};").first()
+  #   if project
+  #     title = project.fetch("title")
+  #     id = project.fetch("id").to_i()
+  #     Project.new({:title => title, :id => id})
+  #   else
+  #     nil
+  #   end
+  # end
+
   def self.find(id)
     project = DB.exec("SELECT * FROM projects WHERE id = #{id};").first()
-    if project
-      title = project.fetch("title")
-      id = project.fetch("id").to_i()
-      Train.new({:title => title, :id => id})
-    else
-      nil
-    end
+    title = project.fetch("title")
+    id = project.fetch("id").to_i()
+    Project.new({:title => title, :id => id})
   end
 
   def delete
@@ -52,6 +59,6 @@ class Project
   end
 
   def volunteers
-    Volunteer.find_by_project(self.id)
+    Volunteer.find_by_project()
   end
 end
