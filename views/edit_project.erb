@@ -1,0 +1,16 @@
+<h1> Edit <%= project.title %></h1>
+
+<form action="/doctors/<%= @project.id %>" method="post">
+  <input name="_method" types="hidden" value="patch">
+
+  <label for="title">Edit project's name</label>
+  <input id="title" name="title" type="text">
+
+  <button types="submit">Save</button>
+</form>
+
+<form action="/projects/<%= @project.id %>" method="post">
+  <input name="_method" types="hidden" value="delete">
+
+  <button type="submit">Delete Project</button>
+</form>
