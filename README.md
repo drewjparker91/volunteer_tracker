@@ -30,9 +30,12 @@ As a non-profit employee, I want to add volunteers to a project._
 
 ## Setup/Installation Requirements
 
-To Extend This Project:
+To View This Project:
 * Clone this repository: https://github.com/drewjparker91/volunteer_tracker.git.
 * Run "bundle" in the terminal to bundle the ruby gems
+* Run createdb volunteer_tracker in the terminal
+* Run psql volunteer_tracker < database_backup.sql in the terminal
+* createdb -T volunteer_tracker volunteer_tracker_test in the terminal
 * Run "ruby app.rb" in the terminal
 
 ## Known Bugs
